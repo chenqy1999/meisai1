@@ -198,7 +198,7 @@ It can also be expressed as:
     X=AF+\varepsilon 
 \end{equation}
 
-Where F is the factor variable, A is the factor load matrix, $a_{ij}$ is the factor load; $\epsilon$ is the special factor
+Where F is the factor variable, A is the factor load matrix, $a_{ij}$ is the factor load; $\epsilon$ is the special factor.
 
 
 
@@ -296,7 +296,7 @@ In order to make it convenient to estimate the parameters, we carry on the logar
 In this way, we only need to carry on simple least-squares estimate to model (2). Fitting with MATLAB to the emission data of global greenhouse gas since 1850, we obtain the following forecast model:
 
 \begin{equation}
-    \label{lnct}
+    \ln C(t)=-8.217+5.59\times 10^{-4}e^{8.70\times 10^{-3}t}\label{lnct}
 \end{equation}
 
 
@@ -379,12 +379,16 @@ We take the values of k as 0.634, 1.2, 2.0, and 3.0, respectively. The estimated
 
 The difference between the model and the real data(data source: NASA) is shown in Figure \ref{2000_2010}. We use mean square error (MSE) to compare the differences between the 4 models and the real data. The MSE values of the four models are 4.78, 2.29, 0.43, 0.38 respectively. When $\kappa = 3$, the model fits best.
 
-
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.6\textwidth]{2000_2010.png}
 	\caption{ The difference between the model and the real data}\label{2000_2010}
 \end{figure}
+
+
+
+
+
 
 %5.2
 \subsection{The Risky Area and Population}
@@ -400,7 +404,7 @@ A total of 37 island states are threatened (see appendix for details) with a cur
 
 \begin{figure}[htbp]\label{5.2}
 	\centering
-	\includegraphics[width=.6\textwidth]{5.2.png}
+	\includegraphics[width=1\textwidth]{5.2.png}
 	\caption{ flow diagram of solution}\label{5.2}
 \end{figure}
 
