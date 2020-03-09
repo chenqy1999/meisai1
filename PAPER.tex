@@ -4,7 +4,7 @@
 
 % 本模板不需要填写年份，以当前电脑时间自动生成
 % 请在以下的方括号中填写队伍控制号
-\usepackage[1234567]{easymcm}  % 载入 EasyMCM 模板文件
+\usepackage[2009965]{easymcm}  % 载入 EasyMCM 模板文件
 \problem{F}  % 请在此处填写题号
 \usepackage{mathptmx}  % 这是 Times 字体，中规中矩 
 %\usepackage{mathpazo}  % 这是 COMAP 官方杂志采用的更好看的 Palatino 字体，可替代以上的 mathptmx 宏包
@@ -13,6 +13,9 @@
 \usepackage{rotating}
 \usepackage{colortbl}
 \usepackage{booktabs}
+\usepackage{multicol}
+
+
 
 \title{Arrangement for DroneGo}  % 标题
 
@@ -22,43 +25,43 @@
 % 文档开始
 \begin{document}
 
+
+
+
+
 % 此处填写摘要内容
 \begin{abstract}
-    After the worst hurricane to ever hit Puerto Rico, lots of people were
-    injured. Highways and roads were blocked and damaged by the flood. We
-    establish a model to both meet the needs of medicine delivery and road
-    reconnaissance with rotor wing drones.
-    
-    Our model takes into account the following factors: the number of cargo
-    containers, the type and the number of drones, the number of medicines,
-    the associated packing configuration for each cargo container, the exact locations of cargo containers, and the schedule for each drone. Before establishing the model, we develop necessary assumptions and essential notations to make a reliable scenario.
-    
-    After analyzing the locations of hospitals and flight distance of drones,
-    we decide to set three containers because of the long distance among hospitals. Then, we quantify the associated packing configuration quality by
-    the following three aspects: the minimum time to complete medical supply delivery, the amount of medical supply, and the reconnaissance ability.
-   
-    We use AHP Algorithm and the normalization method to determine the
-    weights of these three factors and evaluate the Comprehensive Evaluation
-    (CE) value. Then we use the greedy algorithm to get the best-associated
-    packing configuration with the highest CE value under the ideal condition.
-    
-    After that, we choose the approximate optimal positions for all cargo
-    containers by image analysis to determine the optimate associated packing
-    configuration in reality (using Bisection). We process the map of roads and
-    populated places into pixels. Then, we can determine the exact location of
-    containers by counting the occupied pixels of roads and populated places.
-    
-    We provide the schedule plan for each drone. Then, we test our model
-    and provide the evidence to show the stability and reliability of the work. In
-    the end, we analyze the strengths and weakness of the model and conclude
-    the result in our report.
+
+As global climate change continues, many island nations are threatened by rising sea levels. As a result, islanders face forced emigration. How to properly relocate these EDPs while ensuring the protection and preservation of their human rights and culture？This is what our team is trying to solve. To design the EDPs policy clearly, we divide the policy into the preservation policy of culture and the protection policy of human rights.
+
+Our first model is the prediction model of potential EDPs. By using the sea level prediction model, we predicted the height of sea-level rise in 2100 (relative to 2000), and we selected 37 island countries at risk around the world based on the sea level rise in 2100 and the characteristics of the islands. We regard their citizens are all potential EDPs, and we estimated the number of potential EDPs. Next, we investigated the number of existing world heritage sites in these island countries and designed a series of preservation policies backed on the actual situation.
+
+Our second model, from a human rights perspective, provides objective support for the design of EDPs' resettlement policies. Firstly, a Liveable Country Index (LCI) was created through the application of factor analysis to measure whether the host country can guarantee the human rights of EDPs. Similarly, the creation of a National Responsibility Index (NRI) to measure each country's responsibility for sea-level rise, namely each country's responsibility for the EDPs. Finally, considering the cost of migration distance, we created a Comprehensive Index from the perspective of risk island countries in different geographical locations, which represents the compatibility between island countries and host countries. We can see that the Comprehensive Index is the result of two-way selection.
+
+According to the Composite Index, we have developed the best resettlement program under the premise of protecting human rights, for the EDPs. On this basis, some migration policies are put forward.At the end of the paper, we analyze the advantages and disadvantages of our model.
+
 
     % 美赛论文中无需注明关键字。若您一定要使用，
     % 请将以下两行的注释号 '%' 去除，以使其生效
      \vspace{5pt}
      \textbf{Keywords}: Drone, Route Planning, 3D Bin-Packing, AHP.
 
+
+
 \end{abstract}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \maketitle  % 生成 Summary Sheet
 \tableofcontents  % 生成目录
@@ -82,9 +85,13 @@ With the rising sea levels, the scene in the movie Waterworld is becoming a real
 \subsection{Our work}
 %A literatrue\cite{1} say something about this problem ...
 To help the UN address the increasing challenge of EDPs, We need to develop a set of models for resettling policies that take into account the protection of human rights and the protection of culture. And we have done the following work: 
+
 1. By predicting the future sea-level rise, estimate the potential EDPs and regions.
+
 2. to analyze the risk of loss of the culture behind the EDPs. 
+
 3. to guarantee the human rights of the EDPs, we established the evaluation models to arrange EDPs’ migration properly and provides  reference objectively 
+
 4. According to the established model, our team designed the policies from two aspects: protecting human rights and protecting local culture.
 
 
@@ -93,7 +100,6 @@ To help the UN address the increasing challenge of EDPs, We need to develop a se
 %    \item We do ...
 %    \item We do ...
 %\end{enumerate}
-\newpage
 \section{Assumptions}
 
 \begin{itemize}
@@ -114,57 +120,39 @@ To help the UN address the increasing challenge of EDPs, We need to develop a se
 
 
 \newpage
+%----------------------------notations---------------------------
+
 \section{Notations}
-The primary notations used in this paper are listed in Table \ref{tb:notation}.
-\begin{table}[!htbp]
-\begin{center}
-\caption{Notations}
-\begin{tabular}{cl}
-	\toprule
-	\multicolumn{1}{m{3cm}}{\centering Symbol}
-	&\multicolumn{1}{m{8cm}}{\centering Definition}\\
-	\midrule
-	$A$&the first one\\
-	$b$&the second one\\
-	$\alpha$ &the last one\\
-	$A$&the first one\\
-	$b$&the second one\\
-	$\alpha$ &the last one\\
-	$A$&the first one\\
-	$b$&the second one\\
-	$\alpha$ &the last one\\
-	$A$&the first one\\
-	$b$&the second one\\
-	$\alpha$ &the last one\\
-	$A$&the first one\\
-	$b$&the second one\\
-	$\alpha$ &the last one\\
-	\bottomrule
-\end{tabular}\label{tb:notation}
-\end{center}
-\end{table}
-\newpage
+The primary notations used in this paper are listed in Table \ref{Notations}.
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+  \caption{Notations}
+    \begin{tabular}{ll}
+    \toprule
+    \multicolumn{1}{c}{Variable} & \multicolumn{1}{c}{Definition} \\
+    \midrule
+    $C(t)$  & Global emissions of greenhouse gases in year t \\
+    
+    $c_0$    & The initial CO^2 concentration(in 1850) \\
+    $F(t)$  & radiative forcing in year t \\
+    $a_0,b$  & \textcolor[rgb]{ .133,  .133,  .133}{Constant coefficient} \\
+    $T(t)$  & \textcolor[rgb]{ .2,  .2,  .2}{Temperature in year t} \\
+    $\beta$  & Specific heat capacity \\
+    $\gamma$ & heat capacity ratio  \\
+    $\kappa$ & \multicolumn{1}{p{25.555em}}{thermal diffusion coefficient of ocean} \\
+    $LCI$   & Liveable Country Index \\
+    $NRI$   & \textcolor[rgb]{ .133,  .133,  .133}{National Responsibility Index} \\
+    $IRI$   & International Responsibility Index \\
+    \toprule
+    \end{tabular}%
+  \label{Notations}%
+\end{table}%
+
+
 
 %4
 \section{Preparation of Model}
-
-\item Standardize the data obtained
-
-\item Factor model
-
-
-
-
-
-
-%行内公式加$符号
-
-
-
-
-
-
-
 
 
 
@@ -245,7 +233,7 @@ $I_{ij}$ is the correlation coefficient matrix R eigenvector.
     \item Overall ratings
     
 \begin{equation}
-    Y_i=F_i\times k_i
+    Y_i=F_i\times k_i\,(i=1,2,…n)
 \end{equation}
 
     
@@ -360,11 +348,11 @@ We take the values of k as 0.634, 1.2, 2.0, and 3.0, respectively. The estimated
 \begin{table}[htbp]
   \centering
   \caption{Sea level forecast for a particular year}
-    \begin{tabular}{c|ccc}
+    \begin{tabular}{cccc}
     \toprule
-    \multicolumn{1}{l|}{\kappa} & 2030  & 2050  & 2100 \\
+    \multicolumn{1}{l}{\kappa} & 2030  & 2050  & 2100 \\
     \midrule
-    0.6   & 5.5   & 11.1  & 30.1 \\
+    0.6   & 5.5(cm)   & 11.1(cm)  & 30.1(cm) \\
     1.2   & 7.8   & 15.6  & 42.4 \\
     2     & 10.8  & 21.6  & 58.6 \\
     3     & 14.5  & 29    & 78.9 \\
@@ -378,6 +366,8 @@ We take the values of k as 0.634, 1.2, 2.0, and 3.0, respectively. The estimated
 
 
 The difference between the model and the real data(data source: NASA) is shown in Figure \ref{2000_2010}. We use mean square error (MSE) to compare the differences between the 4 models and the real data. The MSE values of the four models are 4.78, 2.29, 0.43, 0.38 respectively. When $\kappa = 3$, the model fits best.
+
+
 
 \begin{figure}[htbp]
 	\centering
@@ -405,12 +395,12 @@ A total of 37 island states are threatened (see appendix for details) with a cur
 \begin{figure}[htbp]\label{5.2}
 	\centering
 	\includegraphics[width=1\textwidth]{5.2.png}
-	\caption{ flow diagram of solution}\label{5.2}
+	\caption{ The geographical locations of 37 island states}\label{5.2}
 \end{figure}
 
 
 
-
+\newpage
 %6
 \section{Preservation of Culture Policy}
 
@@ -430,12 +420,12 @@ There is an urgent need to protect the vast number of world cultural heritage si
 
 %6.2
 \subsection{Concrete Policies}
-Our team has divided cultural protection into three levels , as shown in figure \ref{culture 3 levels},and proposed corresponding policies.
+Our team has divided cultural protection into three levels , as shown in figure \ref{culture 3 levels}, and proposed corresponding policies.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.8\textwidth]{culture 3 levels.png}
-	\caption{ flow diagram of solution}\label{culture 3 levels}
+	\caption{ Preservation Policy of Culture}\label{culture 3 levels}
 \end{figure}
 
 
@@ -482,6 +472,8 @@ Language can reflect the world outlook, the way of thinking, social characterist
 (2)\textbf{Establish an expert group to design plans for the removal of cultural sites.} Many of the cultural heritage sites of at-risk island nations are under threat, with many of them likely to be submerged as sea levels rise. Cultural sites should be relocated as soon as possible, or we have to prepare for marine protection. 
 
 
+\newpage
+
 
 %7
 \section{The Model for EDPs’ Migration}
@@ -494,8 +486,8 @@ Then we calculated the Liveable Country Index of each country(not include island
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=.8\textwidth]{Countries with eligible immigration indices.png}
-	\caption{ flow diagram of solution}\label{Countries_with_eligible_immigration_indices}
+	\includegraphics[width=.8\textwidth]{LCI.png}
+	\caption{ Countries with eligible immigration indices }\label{Countries_with_eligible_immigration_indices}
 \end{figure}
 
 
@@ -507,14 +499,16 @@ Then we calculated the Liveable Country Index of each country(not include island
 First, we select per capita CO2 emissions and per capita energy consumption as indicators of the National Responsibility Index, because the greenhouse effect is the leading cause of sea-level rise. The higher the National Responsibility Index, the more responsible a country is to accept EDPs.
 
 
-After that, we normalize per capita CO2 emissionss and per capita energy consumption of countries with LCI value greater than 0, and measure their contribution to the National Responsibility Index with a weighting of 50\% each. The corresponding NRI of 57 countries was obtained. The results are shown in figure \ref{NRI}.
+After that, we normalize per capita $CO^2$ emissionss and per capita energy consumption of countries with LCI value greater than 0, and measure their contribution to the National Responsibility Index with a weighting of 50\% each. The corresponding NRI of 57 countries was obtained. The results are shown in figure \ref{NRI}.
 
-
+\newpage
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.8\textwidth]{NRI.png}
-	\caption{ flow diagram of solution}\label{NRI}
+	\caption{ International Responsibility Index}\label{NRI}
 \end{figure}
+
+
 
 
 
@@ -540,10 +534,15 @@ Through equation \eqref{IRI}, the IRI of 57 countries are shown in figure. \ref{
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=.8\textwidth]{country_index.png}
-	\caption{ flow diagram of solution}\label{country_index}
+	\includegraphics[width=.8\textwidth]{IRI.png}
+	\caption{ Country Index}\label{country_index}
 \end{figure}
 
+\newpage
+
+
+
+%-----------------------------------high index countries-----------------------
 We regard countries with an IRI greater than 0.3 to be high. To simplify the subsequent calculations, we used only high-index countries. The result is shown in figure \ref{high_index_countries}.
 
 
@@ -551,7 +550,7 @@ We regard countries with an IRI greater than 0.3 to be high. To simplify the sub
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.8\textwidth]{high_index_countries.png}
-	\caption{ flow diagram of solution}\label{high_index_countries}
+	\caption{High-index Countries}\label{high_index_countries}
 \end{figure}
 
 
@@ -561,18 +560,103 @@ We regard countries with an IRI greater than 0.3 to be high. To simplify the sub
 %7.4
 \subsection{The influence of geographical distance on resettlement}
 
+The island nations at risk are scattered across the world's oceans. The influence of geography on resettlement must be taken into account when considering the problem of EDPs. Therefore, we regard the distance between island countries and countries with high IRI as one of the factors determining our policy.
+
+
+Based on geographical location, we divided the 37 threatened countries into six regions: Caribbean Sea(A), Western Pacific(B), Mediterranean Sea(C), Maritime Southeast Asia(D), Indian Ocean(E), East Atlantic(F). The countries included in each region are shown in figure \ref{6_regions}.
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.8\textwidth]{6_regions.png}
+	\caption{ 6 regions}\label{6_regions}
+\end{figure}
+
+
+
+
+Bing Map was used to measure the distance between countries with high country index and threatened areas, and the distance was divided into 6 grades, as shown in Table \ref{distance_level}.
+
+
+
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+  \caption{Add caption}
+    \begin{tabular}{lllllll}
+    \toprule
+    Rank  & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} \\
+    \midrule
+    Distance(km) & <3000 & 3000-6000 & 6001-9000 & 9001-12000 & 12001-15000 & 15001-18000 \\
+    \bottomrule
+    \end{tabular}%
+  \label{distance_level}%
+\end{table}%
+
+
+
+After the measurement, we got table \ref{distance}.
+
+
+
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[htbp]
+  \centering
+  \caption{Add caption}
+    \begin{tabular}{lcccccc}
+    \toprule
+    Country & A     & B     & C     & D     & E     & F \\
+    \midrule
+    Australia & 6     & 2     & 5     & 1     & 4     & 6 \\
+    Qatar & 4     & 5     & 2     & 3     & 2     & 3 \\
+    Canada & 2     & 4     & 3     & 5     & 5     & 5 \\
+    Guyana & 1     & 5     & 3     & 6     & 4     & 3 \\
+    Luxembourg & 3     & 6     & 1     & 5     & 3     & 2 \\
+    Norway & 3     & 5     & 2     & 4     & 3     & 3 \\
+    United States & 1     & 4     & 3     & 6     & 5     & 3 \\
+    Kazakhstan & 4     & 4     & 2     & 3     & 3     & 3 \\
+    Finland & 3     & 5     & 2     & 4     & 3     & 3 \\
+    \bottomrule
+    \end{tabular}%
+  \label{distance}%
+\end{table}%
+
 
 
 
 
 %7.5
 \subsection{Comprehensive Index}
+For more careful consideration, IRI and distance grade was used as the comprehensive indexes to select suitable countries for EDPs to resettle. Closer proximity means lower resettlement costs and, to some extent, it protect EDPs' way of life. The evaluation system of the comprehensive index was defined as:
+
+\begin{equation}
+    Comprehensive\,\,Index=IRI-\frac{Distance\,\,grade}{Maximum\,\,Distance\,\,grade}+0.6
+\end{equation}
 
 
+The 0.6 here is to prevent the composite index from being negative, which would affect the comparison between the results.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.8\textwidth]{ABCDEF.png}
+	\caption{ flow diagram of solution}\label{ABCDEF}
+\end{figure}
 
 
-%8
+\newpage
+
+%-------------------------------------8
 \section{Policies for Protection of Human Rights}
+
+
+
+
+
+%-------------------------------------9
+\section{Strengths and Weaknesses}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
