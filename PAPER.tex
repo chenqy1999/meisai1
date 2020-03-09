@@ -148,6 +148,26 @@ The primary notations used in this paper are listed in Table \ref{tb:notation}.
 %4
 \section{Preparation of Model}
 
+\item Standardize the data obtained
+
+\item Factor model
+
+
+
+
+
+
+%行内公式加$符号
+
+
+
+
+
+
+
+
+
+
 
 %4.1
 \subsection{Factor analysis}
@@ -155,24 +175,79 @@ The primary notations used in this paper are listed in Table \ref{tb:notation}.
 \begin{itemize}
 
     \item Standardize the data obtained
-    
+    \begin{equation}
+    X_i=\frac{X_i-E\left( X_i \right)}{\sqrt{Var\left( X_i \right)}}
+\end{equation}
+
+
     
     \item Factor model
+\begin{equation}
+    \begin{cases}
+	X_1=a_{11}F_1+a_{12}F_2+\cdots +a_{1m}F_m+\varepsilon _1\\
+	X_2=a_{21}F_1+a_{22}F_2+\cdots +a_{2m}F_m+\varepsilon _2\\
+	\,\,\vdots\\
+	\,\,\vdots\\
+	X_n=a_{n1}F_1+a_{n2}F_2+\cdots +a_{nm}F_m+\varepsilon _n\\
+    \end{cases}
+\end{equation}
+
+It can also be expressed as:
+
+\begin{equation}
+    X=AF+\varepsilon 
+\end{equation}
+
+Where F is the factor variable, A is the factor load matrix, $a_{ij}$ is the factor load; $\epsilon$ is the special factor
+
+
+
+
+
+    \item Variance contribution rate (${k_i}$) of public factor $F_i$
     
     
-%要改
-    \item Variance contribution rate (${k_i}$) of public factor &{F_i}&
+    \begin{equation}
+        k_i=\frac{\lambda _i}{\sum_{\gamma =1}^n{\lambda _{\gamma}}}\left( i=1,2...,n \right) 
+    \end{equation}
     
+    
+$\lambda _i\left( \lambda _1,\lambda _2\cdots \cdots ,\lambda _n>0 \right) $
+is the eigenvalue of the correlation coefficient matrix R of X.
     
     \item Factor load matrix
+    \begin{equation}
+            a_{ij}=\sqrt{\lambda _i}l_{ij}\left( i,j=1,2,...,n \right) 
+    \end{equation}
     
     
-    \ttem Factor variable score
     
+\begin{equation}
+    A=\left[ \begin{matrix}
+	a_{11}&		\cdots&		a_{1m}\\
+	\vdots&		\vdots&		\vdots\\
+	a_{n1}&		\cdots&		a_{nm}\\
+\end{matrix} \right] =\left[ \begin{matrix}
+	\sqrt{\lambda _1}l_{11}&		\cdots&		\sqrt{\lambda _n}l_{n1}\\
+	\vdots&		\vdots&		\vdots\\
+	\sqrt{\lambda _1}l_{1n}&		\cdots&		\sqrt{\lambda _n}l_{nn}\\
+\end{matrix} \right] 
+\end{equation}
+
+$I_{ij}$ is the correlation coefficient matrix R eigenvector.
     
+    \item Factor variable score
+    
+    \begin{equation}
+        F=AX
+    \end{equation}
+
     \item Overall ratings
     
-    
+\begin{equation}
+    Y_i=F_i\times k_i
+\end{equation}
+
     
 \end{itemize}
 
@@ -199,7 +274,7 @@ Carbon dioxide is the main cause of global sea level rise. We estimate future se
 According to the increase trend of future greenhouse gas emission and present research results, we assume the model of greenhouse gas emission is
 
 \begin{equation}\label{ct}
-    insert equation
+    C\left( t \right) =c_0e^{Be^{at}}
 \end{equation}
 
 
@@ -214,7 +289,7 @@ In order to make it convenient to estimate the parameters, we carry on the logar
 
 %公式2
 \begin{equation}
-    insert
+    \ln C\left( t \right) =\ln c_0+B_te^{at}
 \end{equation}
 
 
@@ -232,11 +307,11 @@ In the role of the greenhouse conditions we assume that increase of greenhouse g
 
 
 \begin{equation}\label{ft}
-    insert
+    F\left( t \right) =a_0+b\ln \left[ c\left( t \right) /270 \right] 
 \end{equation}
 
 
-$a_0$ and $b$ in the function can be adjusted appropriately according to the measured carbon dioxide emission concentration and the radiation intensity of the greenhouse effect.
+Where $a_0=1.81w/m^2$ and $b=2.95w/m^2$. $a_0$ and $b$ in the function can be adjusted appropriately according to the measured carbon dioxide emission concentration and the radiation intensity of the greenhouse effect.
 
 
 Similarly, the temperature change caused by the emission of greenhouse gasses can be regarded as a function, which is obtained as the following:
@@ -244,11 +319,11 @@ Similarly, the temperature change caused by the emission of greenhouse gasses ca
 
 
 \begin{equation}
-    insert
+    T\left( t \right) =\beta t\ln \left[ \gamma tC\left( t \right)\right]
 \end{equation}
 
 
-According to scientists' estimates, the pre-industrial carbon dioxide emission concentration was $270\times10^{-6}$, and the temperature was about 0.68 degrees Celsius lower than that of 2000, which was considered zero in order to calculate sea-level changes.
+In equation, $\beta=0.00593$; $\gamma =0.0114$. According to scientists' estimates, the pre-industrial carbon dioxide emission concentration was $270\times10^{-6}$, and the temperature was about 0.68 degrees Celsius lower than that of 2000, which was considered zero in order to calculate sea-level changes.
 
 
 
@@ -258,7 +333,7 @@ According to scientists' estimates, the pre-industrial carbon dioxide emission c
 In order to better link temperature changes, the greenhouse effect, and ocean thermal diffusion, we use the sea-level prediction equation from Wigley.
 
 \begin{equation}
-    insert
+    Z\left( t \right) =\left[ 4.13+2.65F\left( t \right) \right] T\left( t \right) \kappa ^{0.221}
 \end{equation}
 
 
